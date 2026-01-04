@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import * as PropTypes from 'prop-types';
+
 import { ThemeConfig } from './types';
 
 // Helper to confirm object keys for iteration
@@ -67,7 +67,4 @@ export const ThemeProvider = ({ theme, children }: { theme: ThemeConfig; childre
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
-ThemeProvider.propTypes = {
-    theme: PropTypes.object.isRequired,
-    children: PropTypes.node
-};
+

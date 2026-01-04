@@ -1,6 +1,6 @@
 import { forwardRef, ForwardRefExoticComponent, RefAttributes, ReactNode } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Badge.css';
 
 /**
@@ -47,10 +47,4 @@ export const Badge: ForwardRefExoticComponent<BadgeProps & RefAttributes<HTMLSpa
 );
 
 Badge.displayName = 'Badge';
-Badge.propTypes = {
-    variant: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'neutral']),
-    size: PropTypes.oneOf(['sm', 'md', 'lg']),
-    shape: PropTypes.oneOf(['rounded', 'pill']),
-    children: PropTypes.node,
-    className: PropTypes.string
-};
+

@@ -1,6 +1,6 @@
 import { forwardRef, ReactNode, ForwardRefExoticComponent, RefAttributes, ChangeEventHandler } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Switch.css';
 
 /**
@@ -66,18 +66,4 @@ export const Switch: ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLI
 );
 
 Switch.displayName = 'Switch';
-Switch.propTypes = {
-    label: PropTypes.node,
-    error: PropTypes.bool,
-    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-    variant: PropTypes.oneOf(['primary', 'success', 'warning', 'danger']),
-    checked: PropTypes.bool,
-    defaultChecked: PropTypes.bool,
-    onChange: PropTypes.func,
-    name: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    id: PropTypes.string,
-    className: PropTypes.string
-};
+

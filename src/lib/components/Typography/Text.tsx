@@ -1,6 +1,6 @@
 import { forwardRef, ElementType, CSSProperties, ForwardRefExoticComponent, RefAttributes, ReactNode } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Typography.css';
 
 /**
@@ -67,15 +67,4 @@ export const Text: ForwardRefExoticComponent<TextProps & RefAttributes<HTMLEleme
 );
 
 Text.displayName = 'Text';
-Text.propTypes = {
-    variant: PropTypes.oneOf(['body', 'small', 'caption', 'lead']),
-    weight: PropTypes.oneOf(['normal', 'medium', 'semibold', 'bold']),
-    muted: PropTypes.bool,
-    truncate: PropTypes.bool,
-    lines: PropTypes.number,
-    as: PropTypes.elementType,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    id: PropTypes.string
-};
+

@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefExoticComponent, RefAttributes, ReactNode } from 'react';
-import * as PropTypes from 'prop-types';
+
 import './Table.css';
 
 /**
@@ -50,11 +50,4 @@ export const Table: ForwardRefExoticComponent<TableProps & RefAttributes<HTMLTab
 );
 
 Table.displayName = 'Table';
-Table.propTypes = {
-    bordered: PropTypes.bool,
-    striped: PropTypes.bool,
-    hover: PropTypes.bool,
-    size: PropTypes.oneOf(['sm', 'md']),
-    children: PropTypes.node,
-    className: PropTypes.string
-};
+

@@ -1,6 +1,6 @@
 import { forwardRef, ForwardRefExoticComponent, RefAttributes, ReactNode, MouseEventHandler, CSSProperties } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Button.css';
 
 /**
@@ -68,14 +68,4 @@ export const Button: ForwardRefExoticComponent<ButtonProps & RefAttributes<HTMLB
 );
 
 Button.displayName = 'Button';
-Button.propTypes = {
-    variant: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'success', 'warning', 'ghost', 'outline-danger', 'outline-success', 'outline-warning']),
-    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-    children: PropTypes.node,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    type: PropTypes.oneOf(['button', 'submit', 'reset']),
-    disabled: PropTypes.bool,
-    autoFocus: PropTypes.bool,
-    style: PropTypes.object
-};
+

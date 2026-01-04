@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Select.css';
 
 export interface SelectOption {
@@ -220,19 +220,4 @@ export const Select = ({
 };
 
 Select.displayName = 'Select';
-Select.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape({
-        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-        label: PropTypes.string.isRequired
-    })).isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string,
-    label: PropTypes.string,
-    error: PropTypes.bool,
-    helperText: PropTypes.string,
-    disabled: PropTypes.bool,
-    fullWidth: PropTypes.bool,
-    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-    className: PropTypes.string
-};
+

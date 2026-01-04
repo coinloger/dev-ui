@@ -1,6 +1,6 @@
 import { forwardRef, ElementType, CSSProperties, ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 
 export interface FlexItemProps {
     /**
@@ -87,16 +87,4 @@ export const FlexItem: ForwardRefExoticComponent<FlexItemProps & RefAttributes<H
 
 FlexItem.displayName = 'Flex.Item';
 
-FlexItem.propTypes = {
-    grow: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-    shrink: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
-    basis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    order: PropTypes.number,
-    as: PropTypes.elementType,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    id: PropTypes.string
-};
+

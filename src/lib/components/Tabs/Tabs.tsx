@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useId, ReactNode, MouseEvent, MouseEventHandler } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Tabs.css';
 
 interface TabsContextValue {
@@ -159,30 +159,4 @@ TabsList.displayName = 'TabsList';
 TabsTrigger.displayName = 'TabsTrigger';
 TabsContent.displayName = 'TabsContent';
 
-TabsRoot.propTypes = {
-    defaultValue: PropTypes.string,
-    value: PropTypes.string,
-    onValueChange: PropTypes.func,
-    children: PropTypes.node,
-    className: PropTypes.string
-};
 
-TabsList.propTypes = {
-    children: PropTypes.node,
-    variant: PropTypes.oneOf(['line', 'pills']),
-    className: PropTypes.string
-};
-
-TabsTrigger.propTypes = {
-    value: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
-};
-
-TabsContent.propTypes = {
-    value: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    className: PropTypes.string
-};

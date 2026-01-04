@@ -1,6 +1,6 @@
 import { forwardRef, InputHTMLAttributes, useId, ForwardRefExoticComponent, RefAttributes, ChangeEventHandler, FocusEventHandler } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Input.css';
 
 /**
@@ -90,32 +90,4 @@ export const Input: ForwardRefExoticComponent<InputProps & RefAttributes<HTMLInp
 );
 
 Input.displayName = 'Input';
-Input.propTypes = {
-    label: PropTypes.node,
-    error: PropTypes.bool,
-    helperText: PropTypes.string,
-    fullWidth: PropTypes.bool,
-    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    onFocus: PropTypes.func,
-    name: PropTypes.string,
-    id: PropTypes.string,
-    placeholder: PropTypes.string,
-    type: PropTypes.string,
-    disabled: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
-    autoComplete: PropTypes.string,
-    autoFocus: PropTypes.bool,
-    min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    step: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    minLength: PropTypes.number,
-    maxLength: PropTypes.number,
-    pattern: PropTypes.string,
-    inputMode: PropTypes.string,
-    className: PropTypes.string
-};
+

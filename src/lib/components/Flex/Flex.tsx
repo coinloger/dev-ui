@@ -1,6 +1,6 @@
 import { forwardRef, ElementType, CSSProperties, ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import { FlexItem } from './FlexItem';
 import './Flex.css';
 
@@ -108,20 +108,4 @@ export const Flex = forwardRef<HTMLElement, FlexProps>(
 Flex.displayName = 'Flex';
 Flex.Item = FlexItem;
 
-Flex.propTypes = {
-    direction: PropTypes.oneOf(['row', 'column', 'row-reverse', 'column-reverse']),
-    justify: PropTypes.oneOf(['start', 'center', 'end', 'between', 'around', 'evenly']),
-    align: PropTypes.oneOf(['start', 'center', 'end', 'stretch', 'baseline']),
-    wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
-    gap: PropTypes.oneOfType([
-        PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-        PropTypes.number,
-        PropTypes.string
-    ]),
-    inline: PropTypes.bool,
-    as: PropTypes.elementType,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    id: PropTypes.string
-};
+

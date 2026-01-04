@@ -1,6 +1,6 @@
 import { forwardRef, ReactNode, ForwardRefExoticComponent, RefAttributes, CSSProperties } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Card.css';
 
 /**
@@ -37,10 +37,4 @@ export const Card: ForwardRefExoticComponent<CardProps & RefAttributes<HTMLDivEl
 );
 
 Card.displayName = 'Card';
-Card.propTypes = {
-    title: PropTypes.node,
-    footer: PropTypes.node,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    style: PropTypes.object
-};
+

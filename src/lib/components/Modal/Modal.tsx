@@ -1,7 +1,7 @@
 import { useEffect, useRef, createContext, useContext, useState, ReactNode, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Modal.css';
 
 // Context
@@ -181,28 +181,4 @@ ModalHeader.displayName = 'ModalHeader';
 ModalBody.displayName = 'ModalBody';
 ModalFooter.displayName = 'ModalFooter';
 
-ModalRoot.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    title: PropTypes.node,
-    children: PropTypes.node,
-    footer: PropTypes.node,
-    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
-    className: PropTypes.string,
-    closeOnBackdropClick: PropTypes.bool
-};
 
-ModalHeader.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string
-};
-
-ModalBody.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string
-};
-
-ModalFooter.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string
-};

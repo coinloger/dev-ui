@@ -1,6 +1,6 @@
 import { forwardRef, ElementType, HTMLAttributes, ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react';
 import { clsx } from 'clsx';
-import * as PropTypes from 'prop-types';
+
 import './Container.css';
 
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
@@ -48,9 +48,4 @@ export const Container: ForwardRefExoticComponent<ContainerProps & RefAttributes
 
 Container.displayName = 'Container';
 
-Container.propTypes = {
-    fluid: PropTypes.bool,
-    as: PropTypes.elementType,
-    children: PropTypes.node,
-    className: PropTypes.string
-};
+
