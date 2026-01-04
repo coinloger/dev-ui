@@ -1,16 +1,15 @@
 .ui-table {
     width: 100%;
-    margin-bottom: 1rem;
     color: var(--ui-text-main);
     background-color: transparent;
     border-collapse: collapse;
     font-family: var(--ui-font-family);
-    font-size: 0.95rem;
+    font-size: var(--ui-font-size-md);
 }
 
 .ui-table th,
 .ui-table td {
-    padding: 0.75rem;
+    padding: var(--ui-spacing-sm);
     vertical-align: top;
     border-bottom: 1px solid var(--ui-border);
     text-align: left;
@@ -45,8 +44,7 @@
 /* Sizes */
 .ui-table-sm th,
 .ui-table-sm td {
-    padding: 0.375rem;
-    font-size: 0.875rem;
+    padding: var(--ui-spacing-xsl);
 }
 
 /* Responsive Wrapper */
@@ -55,4 +53,8 @@
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+.ui-table.ui-table-sm {
+    font-size: var(--ui-font-size-sm);
 }
