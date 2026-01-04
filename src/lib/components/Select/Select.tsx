@@ -74,12 +74,33 @@ export const Select = ({
     className,
 }: SelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [menuPosition, setMenuPosition] = useState<'bottom' | 'top'>('bottom');
     const containerRef = useRef<HTMLDivElement>(null);
 
     const selectedOption = options.find(opt => opt.value === value);
 
+    const updatePosition = () => {
+        if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const spaceBelow = window.innerHeight - rect.bottom;
+            const spaceAbove = rect.top;
+
+            // If less than 250px below and more space above, open upwards
+            if (spaceBelow < 250 && spaceAbove > spaceBelow) {
+                setMenuPosition('top');
+            } else {
+                setMenuPosition('bottom');
+            }
+        }
+    };
+
     const handleToggle = () => {
-        if (!disabled) setIsOpen(!isOpen);
+        if (disabled) return;
+
+        if (!isOpen) {
+            updatePosition();
+        }
+        setIsOpen(!isOpen);
     };
 
     const handleSelect = (optionValue: string | number) => {
@@ -87,7 +108,20 @@ export const Select = ({
         setIsOpen(false);
     };
 
-    // Click outside to close
+    // Update position on resize/scroll while open
+    useEffect(() => {
+        if (isOpen) {
+            window.addEventListener('resize', updatePosition);
+            window.addEventListener('scroll', updatePosition, { capture: true }); // Capture scroll to handle container scrolling
+        }
+
+        return () => {
+            window.removeEventListener('resize', updatePosition);
+            window.removeEventListener('scroll', updatePosition, { capture: true });
+        };
+    }, [isOpen]);
+
+    // Click outside to close (omitted for brevity, keep existing)
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -116,57 +150,65 @@ export const Select = ({
                 </label>
             )}
 
-            <button
-                type="button"
-                className={clsx(
-                    'ui-select-trigger',
-                    `ui-select-${size}`,
-                    error && 'ui-select-error',
-                    disabled && 'ui-select-disabled',
-                    isOpen && 'ui-select-open'
-                )}
-                onClick={handleToggle}
-                disabled={disabled}
-                aria-haspopup="listbox"
-                aria-expanded={isOpen}
-            >
-                <span className={clsx(!selectedOption && 'ui-select-placeholder')}>
-                    {selectedOption ? selectedOption.label : placeholder}
-                </span>
-
-                <svg
-                    className="ui-select-icon"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-
-            {isOpen && (
-                <ul className="ui-select-menu" role="listbox">
-                    {options.map((option) => (
-                        <li
-                            key={option.value}
-                            className={clsx(
-                                'ui-select-option',
-                                option.value === value && 'ui-select-selected'
-                            )}
-                            onClick={() => handleSelect(option.value)}
-                            role="option"
-                            aria-selected={option.value === value}
-                        >
-                            {option.label}
-                        </li>
-                    ))}
-                    {options.length === 0 && (
-                        <li className="ui-select-option" style={{ color: 'var(--ui-text-muted)', cursor: 'default' }}>
-                            No options
-                        </li>
+            <div className="ui-select-input-container">
+                <button
+                    type="button"
+                    className={clsx(
+                        'ui-select-trigger',
+                        `ui-select-${size}`,
+                        error && 'ui-select-error',
+                        disabled && 'ui-select-disabled',
+                        isOpen && 'ui-select-open'
                     )}
-                </ul>
-            )}
+                    onClick={handleToggle}
+                    disabled={disabled}
+                    aria-haspopup="listbox"
+                    aria-expanded={isOpen}
+                >
+                    <span className={clsx(!selectedOption && 'ui-select-placeholder')}>
+                        {selectedOption ? selectedOption.label : placeholder}
+                    </span>
+
+                    <svg
+                        className="ui-select-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                {isOpen && (
+                    <ul
+                        className={clsx(
+                            "ui-select-menu",
+                            menuPosition === 'top' && "ui-select-menu-top"
+                        )}
+                        role="listbox"
+                    >
+                        {options.map((option) => (
+                            <li
+                                key={option.value}
+                                className={clsx(
+                                    'ui-select-option',
+                                    option.value === value && 'ui-select-selected'
+                                )}
+                                onClick={() => handleSelect(option.value)}
+                                role="option"
+                                aria-selected={option.value === value}
+                            >
+                                {option.label}
+                            </li>
+                        ))}
+                        {options.length === 0 && (
+                            <li className="ui-select-option" style={{ color: 'var(--ui-text-muted)', cursor: 'default' }}>
+                                No options
+                            </li>
+                        )}
+                    </ul>
+                )}
+            </div>
 
             {helperText && (
                 <span className={clsx('ui-helper-text', error && 'ui-helper-text-error')} style={{ marginTop: '0.375rem', display: 'block' }}>

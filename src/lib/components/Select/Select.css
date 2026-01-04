@@ -1,4 +1,8 @@
 .ui-select-wrapper {
+    width: 100%;
+}
+
+.ui-select-input-container {
     position: relative;
     width: 100%;
 }
@@ -69,9 +73,18 @@
     z-index: 10;
     max-height: 250px;
     overflow-y: auto;
-    animation: ui-select-fade-in 0.1s ease-out;
+    animation: ui-select-fade-in-down 0.1s ease-out;
 }
 
+.ui-select-menu-top {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 4px;
+    animation: ui-select-fade-in-up 0.1s ease-out;
+}
+
+/* ... options methods ... */
 .ui-select-option {
     display: flex;
     align-items: center;
@@ -115,10 +128,22 @@
     font-size: var(--ui-select-size-xl-font-size);
 }
 
-@keyframes ui-select-fade-in {
+@keyframes ui-select-fade-in-down {
     from {
         opacity: 0;
         transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-select-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
     }
 
     to {
