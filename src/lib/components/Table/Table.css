@@ -1,0 +1,58 @@
+.ui-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--ui-text-main);
+    background-color: transparent;
+    border-collapse: collapse;
+    font-family: var(--ui-font-family);
+    font-size: 0.95rem;
+}
+
+.ui-table th,
+.ui-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--ui-border);
+    text-align: left;
+}
+
+.ui-table th {
+    font-weight: 600;
+    color: var(--ui-text-main);
+    background-color: var(--ui-bg-subtle);
+    border-bottom-width: 2px;
+}
+
+/* Variants */
+.ui-table-bordered {
+    border: 1px solid var(--ui-border);
+}
+
+.ui-table-bordered th,
+.ui-table-bordered td {
+    border: 1px solid var(--ui-border);
+}
+
+.ui-table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--ui-bg-subtle);
+}
+
+.ui-table-hover tbody tr:hover {
+    background-color: var(--ui-primary-light);
+    color: var(--ui-primary-dark);
+}
+
+/* Sizes */
+.ui-table-sm th,
+.ui-table-sm td {
+    padding: 0.375rem;
+    font-size: 0.875rem;
+}
+
+/* Responsive Wrapper */
+.ui-table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}

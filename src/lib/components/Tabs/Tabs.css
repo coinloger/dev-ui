@@ -1,0 +1,121 @@
+.ui-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ui-tabs-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+/* Line Variant (Default) */
+.ui-tabs-list-line {
+    border-bottom: 1px solid var(--ui-tabs-border-color);
+}
+
+.ui-tabs-list-line .ui-tabs-trigger {
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.ui-tabs-list-line .ui-tabs-trigger[data-state="active"] {
+    color: var(--ui-tabs-active-color);
+    border-bottom-color: var(--ui-tabs-active-color);
+}
+
+/* Pills Variant - "Button Group" look */
+.ui-tabs-list-pills {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+.ui-tabs-list-pills .ui-tabs-trigger {
+    /* Mimic .ui-btn base */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    /* Standard button padding */
+    font-size: 0.875rem;
+    /* Standard font size */
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: var(--ui-radius-md);
+    border: 1px solid transparent;
+
+    /* Default (Inactive) State - Ghost */
+    background-color: transparent;
+    color: var(--ui-text-main);
+
+    flex: none;
+    /* Auto width */
+    min-width: auto;
+}
+
+/* Active State - Primary Button */
+.ui-tabs-list-pills .ui-tabs-trigger[data-state="active"] {
+    background-color: var(--ui-primary);
+    color: #ffffff;
+    border-color: var(--ui-primary);
+    box-shadow: none;
+}
+
+/* Hover State - Ghost Hover */
+.ui-tabs-list-pills .ui-tabs-trigger:hover:not(:disabled):not([data-state="active"]) {
+    background-color: var(--ui-bg-subtle);
+    color: var(--ui-text-main);
+}
+
+
+/* Base Trigger Styles (resetting some defaults) */
+.ui-tabs-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Default for Line variant */
+    padding: var(--ui-tabs-trigger-padding);
+    font-size: var(--ui-tabs-trigger-font-size);
+    font-weight: var(--ui-tabs-trigger-weight);
+
+    color: var(--ui-tabs-inactive-color);
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Match button transition */
+    outline: none;
+    user-select: none;
+}
+
+/* Hover: Only on inactive tabs */
+.ui-tabs-trigger:hover:not(:disabled):not([data-state="active"]) {
+    background-color: var(--ui-tabs-hover-bg);
+    color: var(--ui-text-main);
+}
+
+.ui-tabs-trigger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ui-tabs-trigger:focus-visible {
+    border-radius: var(--ui-radius-sm);
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+}
+
+.ui-tabs-content {
+    padding: var(--ui-tabs-content-padding);
+    outline: none;
+}
