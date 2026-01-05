@@ -1,0 +1,158 @@
+@import '../../styles/variables.less';
+
+.ui-select-wrapper {
+    width: 100%;
+}
+
+.ui-select-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.ui-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+
+    // Default md metrics if size not applied
+    padding: 8px 12px;
+    font-size: @font-size-md;
+
+    /* Inherit from Theme */
+    background-color: @bg-main;
+    border: 1px solid @border;
+    border-radius: @radius-md;
+    color: @text-main;
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+        outline: none;
+        border-color: @primary;
+        box-shadow: 0 0 0 3px @primary-light;
+    }
+
+    &.ui-select-error {
+        border-color: @danger;
+
+        &:focus {
+            box-shadow: 0 0 0 3px fade(@danger, 15%);
+        }
+    }
+
+    &.ui-select-disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: @bg-subtle;
+    }
+}
+
+.ui-select-placeholder {
+    color: @text-muted;
+}
+
+.ui-select-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: @text-muted;
+    transition: transform 0.2s;
+}
+
+.ui-select-open .ui-select-icon {
+    transform: rotate(180deg);
+}
+
+/* Menu */
+.ui-select-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 4px;
+    padding: 4px;
+    background-color: @bg-main;
+    border: 1px solid @border;
+    border-radius: @radius-md;
+    box-shadow: @shadow-lg;
+    z-index: 10;
+    max-height: 250px;
+    overflow-y: auto;
+    animation: ui-select-fade-in-down 0.1s ease-out;
+
+    &-top {
+        top: auto;
+        bottom: 100%;
+        margin-top: 0;
+        margin-bottom: 4px;
+        animation: ui-select-fade-in-up 0.1s ease-out;
+    }
+}
+
+.ui-select-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: @radius-sm;
+    color: @text-main;
+    transition: background-color 0.1s;
+
+    &:hover {
+        background-color: @bg-subtle;
+    }
+
+    &.ui-select-selected {
+        background-color: @primary-light;
+        color: @primary;
+        font-weight: 500;
+    }
+}
+
+/* Sizes (Matching Input) */
+.ui-select-sm {
+    padding: 6px 8px;
+    font-size: @font-size-sm;
+}
+
+.ui-select-md {
+    padding: 8px 12px;
+    font-size: @font-size-md;
+}
+
+.ui-select-lg {
+    padding: 11px 16px;
+    font-size: @font-size-lg;
+}
+
+.ui-select-xl {
+    padding: 16px 20px;
+    font-size: @font-size-xl;
+}
+
+@keyframes ui-select-fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-select-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

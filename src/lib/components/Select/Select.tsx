@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { clsx } from 'clsx';
 
-import './Select.css';
+import './Select.less';
 
 export interface SelectOption {
     value: string | number;

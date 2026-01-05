@@ -1,7 +1,7 @@
-import { forwardRef, ElementType, HTMLAttributes, ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react';
+import { forwardRef, type ElementType, type HTMLAttributes, type ReactNode, type ForwardRefExoticComponent, type RefAttributes } from 'react';
 import { clsx } from 'clsx';
 
-import './Container.css';
+import './Container.less';
 
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
     /**
@@ -34,7 +34,7 @@ export const Container: ForwardRefExoticComponent<ContainerProps & RefAttributes
     }, ref) => {
         const classes = clsx(
             'ui-container',
-            fluid && 'ui-container--fluid',
+            fluid && 'ui-container-fluid',
             className
         );
 

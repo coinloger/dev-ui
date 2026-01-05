@@ -1,7 +1,7 @@
-import { forwardRef, ReactNode, ForwardRefExoticComponent, RefAttributes, CSSProperties } from 'react';
+import { forwardRef, type ReactNode, type ForwardRefExoticComponent, type RefAttributes, type CSSProperties } from 'react';
 import { clsx } from 'clsx';
 
-import './Card.css';
+import './Card.less';
 
 /**
  * Card component properties.
@@ -28,9 +28,9 @@ export const Card: ForwardRefExoticComponent<CardProps & RefAttributes<HTMLDivEl
     ({ className, title, footer, children, ...props }, ref) => {
         return (
             <div ref={ref} className={clsx('ui-card', className)} {...props}>
-                {title && <div className="ui-card__header">{title}</div>}
-                <div className="ui-card__body">{children}</div>
-                {footer && <div className="ui-card__footer">{footer}</div>}
+                {title && <div className="ui-card-header">{title}</div>}
+                <div className="ui-card-body">{children}</div>
+                {footer && <div className="ui-card-footer">{footer}</div>}
             </div>
         );
     }

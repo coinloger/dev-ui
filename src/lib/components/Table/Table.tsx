@@ -1,6 +1,7 @@
-import { forwardRef, ForwardRefExoticComponent, RefAttributes, ReactNode } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type RefAttributes, type ReactNode } from 'react';
+import { clsx } from 'clsx';
 
-import './Table.css';
+import './Table.less';
 
 /**
  * Table component properties.
@@ -30,14 +31,14 @@ interface TableProps {
 
 export const Table: ForwardRefExoticComponent<TableProps & RefAttributes<HTMLTableElement>> = forwardRef<HTMLTableElement, TableProps>(
     ({ className, bordered = true, striped, hover, size = 'md', children, ...props }, ref) => {
-        const classes = [
+        const classes = clsx(
             'ui-table',
             bordered && 'ui-table-bordered',
             striped && 'ui-table-striped',
             hover && 'ui-table-hover',
             size === 'sm' && 'ui-table-sm',
             className
-        ].filter(Boolean).join(' ');
+        );
 
         return (
             <div className="ui-table-responsive">

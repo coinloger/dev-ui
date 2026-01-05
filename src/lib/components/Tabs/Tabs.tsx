@@ -1,7 +1,7 @@
-import { createContext, useContext, useState, useId, ReactNode, MouseEvent, MouseEventHandler } from 'react';
+import { createContext, useContext, useState, useId, type ReactNode, type MouseEvent, type MouseEventHandler } from 'react';
 import { clsx } from 'clsx';
 
-import './Tabs.css';
+import './Tabs.less';
 
 interface TabsContextValue {
     value: string;

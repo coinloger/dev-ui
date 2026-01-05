@@ -1,7 +1,7 @@
-import { forwardRef, ForwardRefExoticComponent, RefAttributes, ReactNode } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type RefAttributes, type ReactNode } from 'react';
 import { clsx } from 'clsx';
 
-import './Badge.css';
+import './Badge.less';
 
 /**
  * Badge/Tag component properties.

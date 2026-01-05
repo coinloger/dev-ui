@@ -1,0 +1,48 @@
+@import '../../styles/variables.less';
+
+.ui-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: @bg-main;
+    border: 1px solid @border;
+    border-radius: @radius-md;
+    box-shadow: none; // Default shadow none as per tokens
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        border-color: @border-hover;
+    }
+
+    &-header {
+        padding: @spacing-md;
+        margin-bottom: 0;
+        background-color: transparent;
+        border-bottom: 1px solid @border;
+        font-weight: 600;
+        font-size: @font-size-lg;
+        color: @text-main;
+        border-top-left-radius: calc(@radius-md - 1px);
+        border-top-right-radius: calc(@radius-md - 1px);
+    }
+
+    &-body {
+        flex: 1 1 auto;
+        padding: @spacing-md;
+        color: @text-muted;
+        font-size: @font-size-md;
+        line-height: 1.6;
+    }
+
+    &-footer {
+        padding: @spacing-md;
+        background-color: @bg-subtle;
+        border-top: 1px solid @border;
+        display: flex;
+        align-items: center;
+        border-bottom-left-radius: calc(@radius-md - 1px);
+        border-bottom-right-radius: calc(@radius-md - 1px);
+    }
+}

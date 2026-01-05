@@ -1,0 +1,170 @@
+@import 'variables.less';
+
+/* Layout Utilities */
+
+/* Display */
+.ui-block {
+    display: block;
+}
+
+.ui-inline-block {
+    display: inline-block;
+}
+
+.ui-inline {
+    display: inline;
+}
+
+.ui-flex {
+    display: flex;
+    min-width: 0;
+}
+
+.ui-inline-flex {
+    display: inline-flex;
+}
+
+.ui-hidden {
+    display: none;
+}
+
+/* Flex Direction */
+.ui-flex-row {
+    flex-direction: row;
+}
+
+.ui-flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.ui-flex-col {
+    flex-direction: column;
+}
+
+.ui-flex-col-reverse {
+    flex-direction: column-reverse;
+}
+
+/* Flex Wrap */
+.ui-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.ui-flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.ui-flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+/* Flex Grow/Shrink */
+.ui-flex-1 {
+    flex: 1 1 0%;
+}
+
+.ui-flex-auto {
+    flex: 1 1 auto;
+}
+
+.ui-flex-initial {
+    flex: 0 1 auto;
+}
+
+.ui-flex-none {
+    flex: none;
+}
+
+.ui-grow {
+    flex-grow: 1;
+}
+
+.ui-grow-0 {
+    flex-grow: 0;
+}
+
+.ui-shrink {
+    flex-shrink: 1;
+}
+
+.ui-shrink-0 {
+    flex-shrink: 0;
+}
+
+/* Align Items */
+.ui-items-start {
+    align-items: flex-start;
+}
+
+.ui-items-center {
+    align-items: center;
+}
+
+.ui-items-end {
+    align-items: flex-end;
+}
+
+.ui-items-baseline {
+    align-items: baseline;
+}
+
+.ui-items-stretch {
+    align-items: stretch;
+}
+
+/* Justify Content */
+.ui-justify-start {
+    justify-content: flex-start;
+}
+
+.ui-justify-end {
+    justify-content: flex-end;
+}
+
+.ui-justify-center {
+    justify-content: center;
+}
+
+.ui-justify-between {
+    justify-content: space-between;
+}
+
+.ui-justify-around {
+    justify-content: space-around;
+}
+
+.ui-justify-evenly {
+    justify-content: space-evenly;
+}
+
+/* Gap (reuses spacing vars) */
+.ui-gap-0 {
+    gap: 0;
+}
+
+// Gap Loop
+@spacings: {
+    xs: @spacing-xs;
+    xsl: @spacing-xsl;
+    sm: @spacing-sm;
+    md: @spacing-md;
+    lg: @spacing-lg;
+    xl: @spacing-xl;
+    xxl: @spacing-xxl;
+}
+
+;
+
+each(@spacings, {
+    .ui-gap-@{key} {
+        gap: @value;
+    }
+
+    .ui-gap-x-@{key} {
+        column-gap: @value;
+    }
+
+    .ui-gap-y-@{key} {
+        row-gap: @value;
+    }
+});

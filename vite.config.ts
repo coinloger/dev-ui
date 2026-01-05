@@ -25,6 +25,9 @@ const themeGeneratorPlugin = () => {
         configResolved(config: any) {
             runGeneration();
         },
+        buildStart() {
+            runGeneration();
+        },
         handleHotUpdate({ file, server }: any) {
             if (file.endsWith('theme.config.ts') || file.endsWith('default-theme.ts')) {
                 console.log('[Theme] Config changed, executing generation script...');
@@ -55,6 +58,7 @@ export default defineConfig({
         themeGeneratorPlugin()
     ],
     build: {
+        emptyOutDir: false,
         lib: {
             entry: path.resolve(__dirname, 'src/lib/index.ts'),
             formats: ['es', 'cjs']

@@ -1,7 +1,7 @@
-import { forwardRef, ReactNode, ForwardRefExoticComponent, RefAttributes, ChangeEventHandler } from 'react';
+import { forwardRef, type ReactNode, type ForwardRefExoticComponent, type RefAttributes, type ChangeEventHandler } from 'react';
 import { clsx } from 'clsx';
 
-import './Radio.css';
+import './Radio.less';
 
 /**
  * Radio component properties.

@@ -1,0 +1,162 @@
+@import '../../styles/variables.less';
+
+.ui-switch-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    user-select: none;
+    color: @text-main;
+
+    &.ui-switch-disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+}
+
+.ui-switch-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    /* Focus */
+    &:focus+.ui-switch-track {
+        box-shadow: 0 0 0 3px @primary-light;
+    }
+}
+
+.ui-switch-track {
+    position: relative;
+    // Default md values
+    width: 44px;
+    height: 24px;
+    background-color: @border; // or bg-subtle depending on design, using border for unchecked
+    border-radius: 9999px;
+    transition: background-color 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+/* Checked Track */
+.ui-switch-input:checked+.ui-switch-track {
+    background-color: @primary;
+}
+
+/* Thumb */
+.ui-switch-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+
+    // Default md values
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+    transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Checked Thumb Position */
+.ui-switch-input:checked+.ui-switch-track .ui-switch-thumb {
+    left: calc(100% - 18px - 2px); // Default md calculation
+}
+
+/* Sizes */
+.ui-switch-sm {
+    font-size: @font-size-sm;
+
+    .ui-switch-track {
+        width: 32px;
+        height: 18px;
+    }
+
+    .ui-switch-thumb {
+        width: 13px;
+        height: 13px;
+    }
+
+    .ui-switch-input:checked+.ui-switch-track .ui-switch-thumb {
+        left: calc(100% - 13px - 2px);
+    }
+}
+
+.ui-switch-md {
+    font-size: @font-size-md;
+    // Default styles apply
+}
+
+.ui-switch-lg {
+    font-size: @font-size-lg;
+
+    .ui-switch-track {
+        width: 56px;
+        height: 30px;
+    }
+
+    .ui-switch-thumb {
+        width: 23px;
+        height: 23px;
+    }
+
+    .ui-switch-input:checked+.ui-switch-track .ui-switch-thumb {
+        left: calc(100% - 23px - 2px);
+    }
+}
+
+.ui-switch-xl {
+    font-size: @font-size-xl;
+
+    .ui-switch-track {
+        width: 68px;
+        height: 36px;
+    }
+
+    .ui-switch-thumb {
+        width: 28px;
+        height: 28px;
+    }
+
+    .ui-switch-input:checked+.ui-switch-track .ui-switch-thumb {
+        left: calc(100% - 28px - 2px);
+    }
+}
+
+/* Variants */
+.ui-switch-primary {
+    .ui-switch-input:focus+.ui-switch-track {
+        box-shadow: 0 0 0 3px @primary-light;
+    }
+}
+
+.ui-switch-success {
+    .ui-switch-input:checked+.ui-switch-track {
+        background-color: @success;
+    }
+
+    .ui-switch-input:focus+.ui-switch-track {
+        box-shadow: 0 0 0 3px fade(@success, 25%);
+    }
+}
+
+.ui-switch-warning {
+    .ui-switch-input:checked+.ui-switch-track {
+        background-color: @warning;
+    }
+
+    .ui-switch-input:focus+.ui-switch-track {
+        box-shadow: 0 0 0 3px fade(@warning, 25%);
+    }
+}
+
+.ui-switch-danger {
+    .ui-switch-input:checked+.ui-switch-track {
+        background-color: @danger;
+    }
+
+    .ui-switch-input:focus+.ui-switch-track {
+        box-shadow: 0 0 0 3px fade(@danger, 25%);
+    }
+}

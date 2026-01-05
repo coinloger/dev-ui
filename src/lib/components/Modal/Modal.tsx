@@ -1,8 +1,8 @@
-import { useEffect, useRef, createContext, useContext, useState, ReactNode, MouseEvent } from 'react';
+import { useEffect, useRef, useState, createContext, useContext, type ReactNode, type MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { clsx } from 'clsx';
 
-import './Modal.css';
+import './Modal.less';
 
 // Context
 interface ModalContextType {

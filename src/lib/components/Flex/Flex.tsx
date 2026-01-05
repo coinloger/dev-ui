@@ -1,11 +1,11 @@
-import { forwardRef, ElementType, CSSProperties, ReactNode, ForwardRefExoticComponent, RefAttributes } from 'react';
+import { forwardRef, type ElementType, type CSSProperties, type ReactNode, type ForwardRefExoticComponent, type RefAttributes } from 'react';
 import { clsx } from 'clsx';
 
 import { FlexItem } from './FlexItem';
-import './Flex.css';
+
 
 export interface FlexProps {
-    // ... (keep existing props)
+    // ... (keep props matching existing content as we are not showing all lines here, but we are replacing lines 83-91 mostly)
     /**
      * The direction of the flex container.
      * @default 'row'
@@ -81,12 +81,21 @@ export const Flex = forwardRef<HTMLElement, FlexProps>(
         const isCustomGap = typeof gap === 'number' || (typeof gap === 'string' && !['sm', 'md', 'lg', 'xl'].includes(gap));
 
         const classes = clsx(
-            inline ? 'ui-flex--inline' : 'ui-flex',
-            `ui-flex--dir-${direction}`,
-            `ui-flex--justify-${justify}`,
-            `ui-flex--align-${align}`,
-            `ui-flex--wrap-${wrap}`,
-            !isCustomGap && gap && `ui-flex--gap-${gap}`,
+            inline ? 'ui-inline-flex' : 'ui-flex',
+            direction === 'column' ? 'ui-flex-col' :
+                direction === 'column-reverse' ? 'ui-flex-col-reverse' :
+                    direction === 'row-reverse' ? 'ui-flex-row-reverse' :
+                        'ui-flex-row',
+
+            `ui-justify-${justify}`,
+
+            `ui-items-${align}`,
+
+            wrap === 'nowrap' ? 'ui-flex-nowrap' :
+                wrap === 'wrap' ? 'ui-flex-wrap' :
+                    'ui-flex-wrap-reverse',
+
+            !isCustomGap && gap && `ui-gap-${gap}`,
             className
         );
 

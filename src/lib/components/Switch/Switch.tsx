@@ -1,7 +1,7 @@
-import { forwardRef, ReactNode, ForwardRefExoticComponent, RefAttributes, ChangeEventHandler } from 'react';
+import { forwardRef, type ReactNode, type ForwardRefExoticComponent, type RefAttributes, type ChangeEventHandler } from 'react';
 import { clsx } from 'clsx';
 
-import './Switch.css';
+import './Switch.less';
 
 /**
  * Switch toggle component properties.

@@ -1,7 +1,7 @@
-import { forwardRef, ElementType, CSSProperties, ForwardRefExoticComponent, RefAttributes, ReactNode } from 'react';
+import { forwardRef, type ElementType, type CSSProperties, type ForwardRefExoticComponent, type RefAttributes, type ReactNode } from 'react';
 import { clsx } from 'clsx';
 
-import './Typography.css';
+import './Typography.less';
 
 /**
  * Heading typography component properties.

@@ -1,0 +1,44 @@
+@import '../../styles/variables.less';
+
+.ui-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    &-fluid {
+        max-width: 100%;
+    }
+}
+
+/* Responsive behavior mimics Bootstrap's container */
+@media (min-width: 576px) {
+    .ui-container:not(.ui-container-fluid) {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .ui-container:not(.ui-container-fluid) {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .ui-container:not(.ui-container-fluid) {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .ui-container:not(.ui-container-fluid) {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .ui-container:not(.ui-container-fluid) {
+        max-width: 1320px;
+    }
+}

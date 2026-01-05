@@ -1,0 +1,62 @@
+@import '../../styles/variables.less';
+
+.ui-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: @radius-sm;
+    font-weight: 500;
+    line-height: 1;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    /* Shapes */
+    &-pill {
+        border-radius: 9999px;
+    }
+
+    /* Sizes */
+    &-sm {
+        padding: @spacing-xs @spacing-sm;
+        font-size: 8px;
+    }
+
+    &-md {
+        padding: @spacing-xs @spacing-sm;
+        font-size: 10px;
+    }
+
+    &-lg {
+        padding: @spacing-sm @spacing-sm;
+        font-size: 12px;
+    }
+
+    /* Variants */
+    &-primary {
+        background-color: @primary;
+        color: #ffffff;
+    }
+
+    &-success {
+        background-color: @success;
+        color: #ffffff;
+    }
+
+    &-warning {
+        background-color: @warning;
+        color: #ffffff;
+    }
+
+    &-danger {
+        background-color: @danger;
+        color: #ffffff;
+    }
+
+    &-neutral {
+        background-color: @bg-subtle;
+        color: @text-main;
+        border: 1px solid @border;
+    }
+}

@@ -1,7 +1,7 @@
-import { forwardRef, InputHTMLAttributes, useId, ForwardRefExoticComponent, RefAttributes, ChangeEventHandler, FocusEventHandler } from 'react';
+import { forwardRef, type InputHTMLAttributes, useId, type ForwardRefExoticComponent, type RefAttributes, type ChangeEventHandler, type FocusEventHandler } from 'react';
 import { clsx } from 'clsx';
 
-import './Input.css';
+import './Input.less';
 
 /**
  * Input component properties.

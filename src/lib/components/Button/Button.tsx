@@ -1,7 +1,8 @@
-import { forwardRef, ForwardRefExoticComponent, RefAttributes, ReactNode, MouseEventHandler, CSSProperties } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type RefAttributes, type ReactNode, type MouseEventHandler, type CSSProperties } from 'react';
 import { clsx } from 'clsx';
 
-import './Button.css';
+
+import './Button.less';
 
 /**
  * Button component properties.

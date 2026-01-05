@@ -1,0 +1,171 @@
+@import '../../styles/variables.less';
+
+.ui-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    // Use default size if not specified
+    padding: 6px 12px;
+    font-size: @font-size-md;
+
+    border: 1px solid transparent;
+    border-radius: @radius-md;
+    font-family: @font-family;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.5;
+    text-decoration: none;
+    user-select: none;
+
+    &:disabled,
+    &[aria-disabled="true"] {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+        filter: grayscale(0.5);
+    }
+
+    /* Variants */
+    &-primary {
+        background-color: @primary;
+        color: #ffffff;
+        border-color: @primary;
+
+        &:hover {
+            background-color: @primary-hover;
+            border-color: @primary-hover;
+        }
+
+        &:active {
+            background-color: @primary-active;
+        }
+    }
+
+    &-secondary {
+        background-color: #ffffff;
+        color: @text-main;
+        border: 1px solid @border;
+        box-shadow: @shadow-sm;
+
+        &:hover {
+            background-color: @bg-subtle;
+            border-color: @border-hover;
+            color: #000;
+        }
+    }
+
+    &-outline {
+        background-color: transparent;
+        color: @primary;
+        border-color: @primary;
+
+        &:hover {
+            background-color: @primary-light;
+        }
+    }
+
+    &-outline-danger {
+        background-color: transparent;
+        color: @danger;
+        border: 1px solid @danger;
+
+        &:hover {
+            background-color: fade(@danger, 10%);
+        }
+    }
+
+    &-outline-success {
+        background-color: transparent;
+        color: @success;
+        border: 1px solid @success;
+
+        &:hover {
+            background-color: fade(@success, 10%);
+        }
+    }
+
+    &-outline-warning {
+        background-color: transparent;
+        color: @warning;
+        border: 1px solid @warning;
+
+        &:hover {
+            background-color: fade(@warning, 10%);
+        }
+    }
+
+    &-danger {
+        background-color: @danger;
+        color: #ffffff;
+        border-color: @danger;
+
+        &:hover {
+            background-color: mix(@danger, black, 90%);
+            border-color: mix(@danger, black, 90%);
+        }
+    }
+
+    &-success {
+        background-color: @success;
+        color: #ffffff;
+        border-color: @success;
+
+        &:hover {
+            background-color: mix(@success, black, 90%);
+            border-color: mix(@success, black, 90%);
+        }
+    }
+
+    &-warning {
+        background-color: @warning;
+        color: #ffffff;
+        border-color: @warning;
+
+        &:hover {
+            background-color: mix(@warning, black, 90%);
+            border-color: mix(@warning, black, 90%);
+        }
+    }
+
+    &-ghost {
+        background-color: transparent;
+        color: @text-main;
+
+        &:hover {
+            background-color: @bg-subtle;
+        }
+    }
+
+    /* Sizes */
+    &-sm {
+        padding: 4px 8px;
+        font-size: @font-size-sm;
+        border-radius: @radius-sm;
+    }
+
+    &-md {
+        padding: 6px 12px;
+        font-size: @font-size-md;
+        border-radius: @radius-md;
+    }
+
+    &-lg {
+        padding: 10px 16px;
+        font-size: @font-size-lg;
+        border-radius: @radius-md;
+    }
+
+    &-xl {
+        padding: 14px 20px;
+        font-size: @font-size-xl;
+        border-radius: @radius-lg;
+    }
+
+    /* States */
+    &:focus-visible {
+        outline: 2px solid @primary;
+        outline-offset: 2px;
+    }
+}

@@ -1,0 +1,68 @@
+@import '../../styles/variables.less';
+
+.ui-table {
+    width: 100%;
+    color: @text-main;
+    background-color: @bg-table;
+    border-collapse: collapse;
+    font-family: @font-family;
+    font-size: @font-size-md;
+
+    th,
+    td {
+        padding: @spacing-sm;
+        vertical-align: middle;
+        border-bottom: 1px solid @border;
+        text-align: left;
+    }
+
+    th {
+        font-weight: 600;
+        color: @text-muted;
+        background-color: @bg-subtle;
+        border-bottom-width: 2px;
+        text-transform: uppercase;
+        font-size: @font-size-sm;
+    }
+
+    /* Variants */
+    &-bordered {
+        border: 1px solid @border;
+
+        th,
+        td {
+            border: 1px solid @border;
+        }
+    }
+
+    &-striped {
+        tbody tr:nth-of-type(odd) {
+            background-color: @bg-subtle;
+        }
+    }
+
+    &-hover {
+        tbody tr:hover {
+            background-color: @primary-light;
+            // color: @primary-dark; // @primary-dark not defined, skipping or using primary
+        }
+    }
+
+    /* Sizes */
+    &-sm {
+        font-size: @font-size-sm;
+
+        th,
+        td {
+            padding: @spacing-xsl;
+        }
+    }
+}
+
+/* Responsive Wrapper */
+.ui-table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}

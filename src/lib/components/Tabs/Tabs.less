@@ -1,0 +1,117 @@
+@import '../../styles/variables.less';
+
+.ui-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ui-tabs-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+/* Base Trigger Styles */
+.ui-tabs-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Default for Line variant */
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: @text-muted;
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    user-select: none;
+
+    /* Hover: Only on inactive tabs */
+    &:hover:not(:disabled):not([data-state="active"]) {
+        background-color: @bg-subtle;
+        color: @text-main;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:focus-visible {
+        border-radius: @radius-sm;
+        outline: 2px solid @primary;
+        outline-offset: 2px;
+    }
+}
+
+/* Line Variant (Default) */
+.ui-tabs-list-line {
+    border-bottom: 1px solid @border;
+
+    .ui-tabs-trigger {
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px;
+
+        &[data-state="active"] {
+            color: @primary;
+            border-bottom-color: @primary;
+        }
+    }
+}
+
+/* Pills Variant - "Button Group" look */
+.ui-tabs-list-pills {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+
+    .ui-tabs-trigger {
+        /* Mimic .ui-btn base */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+        border-radius: @radius-md;
+        border: 1px solid transparent;
+
+        /* Default (Inactive) State - Ghost */
+        background-color: transparent;
+        color: @text-main;
+        flex: none;
+        min-width: auto;
+
+        /* Active State - Primary Button */
+        &[data-state="active"] {
+            background-color: @primary;
+            color: #ffffff;
+            border-color: @primary;
+            box-shadow: none;
+        }
+
+        /* Hover State - Ghost Hover */
+        &:hover:not(:disabled):not([data-state="active"]) {
+            background-color: @bg-subtle;
+            color: @text-main;
+        }
+    }
+}
+
+.ui-tabs-content {
+    padding: 16px 0;
+    outline: none;
+}

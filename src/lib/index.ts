@@ -1,6 +1,7 @@
-import './styles/variables.css';
+import './styles/theme.less';
 import './styles/reset.css';
-import './styles/utilities.css';
+import './styles/utilities.less';
+import './styles/layout.less';
 
 export * from './components/Button/Button';
 export * from './components/Input/Input';
@@ -15,6 +16,6 @@ export * from './components/Typography/Heading';
 export * from './components/Typography/Text';
 export * from './components/Tabs/Tabs';
 export * from './components/Table/Table';
-export * from './theme';
 export * from './components/Flex/Flex';
 export * from './components/Container/Container';
+
