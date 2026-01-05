@@ -13,6 +13,7 @@ const defaultTheme: ThemeConfig = {
         "border-hover": "#d1d5db",
         "bg-main": "#ffffff",
         "bg-subtle": "#f9fafb",
+        "bg-table": "#ffffff",
         "danger": "#ef4444",
         "success": "#10b981",
         "warning": "#f59e0b"
@@ -222,12 +223,12 @@ const defaultTheme: ThemeConfig = {
             "font-weight": "500",
 
             // Sizes
-            "size-sm-padding": "0.125rem 0.5rem",
-            "size-sm-font-size": "0.75rem",
-            "size-md-padding": "0.25rem 0.75rem",
-            "size-md-font-size": "0.875rem",
-            "size-lg-padding": "0.375rem 0.875rem",
-            "size-lg-font-size": "1rem",
+            "size-sm-padding": "var(--ui-spacing-xs) var(--ui-spacing-sm)",
+            "size-sm-font-size": "8px",
+            "size-md-padding": "var(--ui-spacing-xs) var(--ui-spacing-sm)",
+            "size-md-font-size": "10px",
+            "size-lg-padding": "var(--ui-spacing-sm) var(--ui-spacing-sm)",
+            "size-lg-font-size": "12px",
 
             // Variants
             "primary-bg": "var(--ui-primary)",

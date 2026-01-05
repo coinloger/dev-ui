@@ -154,15 +154,9 @@ const ModalRoot = ({
                     role="dialog"
                     aria-modal="true"
                 >
-                    {title ? (
-                        <>
-                            <ModalHeader>{title}</ModalHeader>
-                            <ModalBody>{children}</ModalBody>
-                            {footer && <ModalFooter>{footer}</ModalFooter>}
-                        </>
-                    ) : (
-                        children
-                    )}
+                    {title && <ModalHeader>{title}</ModalHeader>}
+                    {children}
+                    {footer && <ModalFooter>{footer}</ModalFooter>}
                 </div>
             </div>
         </ModalContext.Provider>,

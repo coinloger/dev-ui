@@ -57,13 +57,28 @@ function themeToCSSVariables(theme: ThemeConfig): React.CSSProperties {
 
 // 3. ThemeProvider Component
 export const ThemeProvider = ({ theme, children }: { theme: ThemeConfig; children: React.ReactNode }) => {
-    const style = useMemo(() => themeToCSSVariables(theme), [theme]);
+    const cssVars = useMemo(() => themeToCSSVariables(theme), [theme]);
 
-    return (
-        <div style={{ display: 'contents', ...style }}>
-            {children}
-        </div>
-    );
+    React.useLayoutEffect(() => {
+        const root = document.documentElement;
+
+        Object.entries(cssVars).forEach(([key, value]) => {
+            if (key.startsWith('--')) {
+                root.style.setProperty(key, String(value));
+            }
+        });
+
+        // Optional: Cleanup
+        return () => {
+            Object.keys(cssVars).forEach(key => {
+                if (key.startsWith('--')) {
+                    root.style.removeProperty(key);
+                }
+            });
+        };
+    }, [cssVars]);
+
+    return <>{children}</>;
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
